@@ -87,7 +87,7 @@
               <p>POSTER</p>
             </div>
             <div class="printed-body text-center">
-              <p>Poster design start from 150k</p>
+              <p><b>Poster design start from 150k</b></p>
               <p>Tell us your reference and we'll calculate
               the price for you</p>
               <button type="button" class="btn">

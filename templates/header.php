@@ -16,15 +16,15 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
-    <ul class="navbar-nav" style="font-size:21px;">
+    <ul class="navbar-nav" style="font-size:18px;">
       <li class="nav-item">
         <a class="nav-link" href="#profile" style="color:white;">Profile</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#owner_home" style="color:white;">Home</a>
+        <a class="nav-link" href="index.php" style="color:white;">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#catalog" style="color:white;">Catalog</a>
+        <a class="nav-link" href="catalog.php" style="color:white;">Catalog</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#logout" style="color:white;">Logout</a>
