@@ -11,10 +11,11 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #7d2ae8;
+  background: #00509d;;
   padding: 30px;
 }
 .container{
+  border-radius: 25px;
   position: relative;
   max-width: 850px;
   width: 100%;
@@ -55,7 +56,7 @@ body{
   position: absolute;
   height: 100%;
   width: 100%;
-  background: #7d2ae8;
+  background: #00509d;;
   opacity: 0.5;
   z-index: 12;
 }
@@ -119,7 +120,7 @@ body{
   bottom: 0;
   height: 3px;
   width: 25px;
-  background: #7d2ae8;
+  background: #00509d;;
 }
 .forms .signup-form  .title:before{
   width: 20px;
@@ -148,11 +149,11 @@ body{
 }
 .form-content .input-box input:focus,
 .form-content .input-box input:valid{
-  border-color: #7d2ae8;
+  border-color: #00509d;;
 }
 .form-content .input-box i{
   position: absolute;
-  color: #7d2ae8;
+  color: #00509d;;
   font-size: 17px;
 }
 .forms .form-content .text{
@@ -172,7 +173,7 @@ body{
 }
 .forms .form-content .button input{
   color: #fff;
-  background: #7d2ae8;
+  background: #00509d;;
   border-radius: 6px;
   padding: 0;
   cursor: pointer;
