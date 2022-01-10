@@ -6,6 +6,8 @@
 	<title>Alicyart | Design</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/css/owner.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link href="assets/css/fontawesome/css/all.css" rel="stylesheet">
 </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-dark" style="background-color:#00509d;">

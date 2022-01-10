@@ -1,4 +1,4 @@
-Image*/
+/*Image*/
 .responsive {
   width: 100%;
   height: auto;
@@ -59,7 +59,7 @@ Image*/
 	margin-top: 5px;
 	font-size: 13px;
 	text-align: center;
-  	text-justify: inter-word;
+  text-justify: inter-word;
 }
 /*Content*/
 
@@ -77,3 +77,22 @@ Image*/
 	font-family: sans-serif;
 }
 /*Footer*/
+/*---------------------------------------------------------------Customer--------------------------------------------------------------------*/
+.profile{
+	width: 100%;
+	height: auto;
+	border-radius: 20px;
+/*	background-color: #8093f1;*/
+}
+
+.profile col-sm-2{
+	background-color: grey;
+}
+@media only screen and (max-width: 600px){
+		.profile img{
+		width: 150px;
+	}
+}
+
+
+/*---------------------------------------------------------------Customer--------------------------------------------------------------------*/
