@@ -79,20 +79,47 @@
 /*Footer*/
 /*---------------------------------------------------------------Customer--------------------------------------------------------------------*/
 .profile{
-	width: 100%;
+	width: 250px;
 	height: auto;
-	border-radius: 20px;
-/*	background-color: #8093f1;*/
+	border-radius: 25px;
+	background-color: lightgray;
 }
-
-.profile col-sm-2{
-	background-color: grey;
+.profile p{
+	font-size: 18px;
+	font-family: cursive;
 }
 @media only screen and (max-width: 600px){
 		.profile img{
+		width: 200px;
+	}
+
+	.order-list img{
 		width: 150px;
+		margin-bottom:5px;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.order-list p{
+		text-align: center;
+	}
+	.order-list button{
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
 	}
 }
 
-
+.order-list img{
+	width: 150px;
+	padding-top:25px;
+}
+.order-list{
+	padding: 5px;
+	border-radius: 25px;
+}
+.order-list p{
+	font-family: sans-serif;
+}
 /*---------------------------------------------------------------Customer--------------------------------------------------------------------*/
+/*---------------------------------------------------------------Designer--------------------------------------------------------------------*/

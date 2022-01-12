@@ -20,16 +20,16 @@
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav" style="font-size:18px;">
       <li class="nav-item">
-        <a class="nav-link" href="#profile" style="color:white;">Profile</a>
+        <a class="nav-link" href="#profile" style="color:white;"><i class="fas fa-user "></i> Profile</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="index.php" style="color:white;">Home</a>
+        <a class="nav-link" href="index.php" style="color:white;"><i class="fas fa-home "></i> Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="catalog.php" style="color:white;">Catalog</a>
+        <a class="nav-link" href="catalog.php" style="color:white;"><i class="fab fa-shopify "></i> Catalog</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#logout" style="color:white;">Logout</a>
+        <a class="nav-link" href="#logout" style="color:white;"><i class="fas fa-sign-out-alt"></i> Logout</a>
       </li>  
     </ul>
   </div>  
