@@ -22,13 +22,13 @@
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav" style="font-size:18px;">
       <li class="nav-item">
-        <a class="nav-link" href="#owner_home" style="color:white;">Home</a>
+        <a class="nav-link" href="#owner_home" style="color:white;"><i class="fas fa-home "></i> Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="catalog.php" style="color:white;">Catalog</a>
+        <a class="nav-link" href="catalog.php" style="color:white;"><i class="fab fa-shopify "></i> Catalog</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="login.php" style="color:white;">Login</a>
+        <a class="nav-link" href="login.php" style="color:white;"><i class="fas fa-sign-in-alt"></i> Login</a>
       </li>  
     </ul>
   </div>  

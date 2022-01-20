@@ -1,56 +1,42 @@
 <?php include('templates/header.php') ?>
 
-<div class="container mt-5">
-  <div class="row">
-
-    <div class="col-sm-6 text-center">
-      <div class="container">
-        <div class="profile">
+<div class="container">
+  <div class="jumbotron mt-5" style="border-radius: 20px;">
+    <div class="row">
+      <div class="col-sm-4">
           <center>
-            <img src="assets/img/profile/profile.png" class="center" style="width:200px;">
+            <img src="assets/img/profile/<?php echo $_SESSION['picture_profile'];?>" class="center" style="width:200px;">
           </center>
-          <p><strong>Rayhan Yuda Lesmana</strong><br>
-            <p style="font-size:15px;">
-              rayhanyuda@gmail.com<br>
-              +6282112440715
+      </div>
+      <div class="col-sm-6">
+        <hr>
+          <p style="font-size:25px;"><strong><?php echo $_SESSION['name'];?></strong><br>
+            <p style="font-size:20px;">
+              <?php echo $_SESSION['email'];?><br>
+              <?php echo $_SESSION['no_tlp'];?>
             </p>
           </p>
           <hr>
           <p class="pb-3">
-          <button type="button" class="btn btn-success" style="border-radius:20px;">Designer</button>
+          <button type="button" class="btn btn-primary" style="border-radius:20px;">Owner</button>
           </p>
-        </div>
       </div>
     </div>
+  </div>
+</div>
 
-    <div class="col-sm-6 mt-3">
-      <div class="container-fluid">
-        <div class="order-list">
-          <div class="row">
-            <div class="col-sm-4">
-              <img src="assets/img/content.png" class="responsive">
-            </div>
-            <div class="col-sm-8">
-              <div class="d-flex flex-column">
-                <div class="">
-                  <p>Desain Logo UMKM</p>
-                </div>
-                <div class="p-1">
-                  <textarea rows="5" disabled style="width:100%;">Ukuran 600x600, Warna dominan biru, Desain simpel aja</textarea>
-                </div>
-                <div class="p-1">
-                  <p>Harga : Rp.150.000.00.,</p>
-                  <a href="designer_detail.php" type="btn" class="btn btn-success">Detail</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+<!-- Barier -->
+<div class="barier mt-5 mb-3">
+    <center>
+        <p style="font-size:30px;"><strong><i>Order Design</i></strong></p>
         <hr>
+    </center>
+</div>
+<!-- Barier -->
 
-      </div>
-    </div>
-
+<div class="container-fluid">
+  <div class="">
+    
   </div>
 </div>
 

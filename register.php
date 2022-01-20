@@ -5,20 +5,20 @@ if(isset($_POST['register'])){
 
     // filter data yang diinputkan
     $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
+    $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
     // enkripsi password
     $password = $_POST["password"];
-    $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
     $no_tlp = filter_input(INPUT_POST, 'no_tlp', FILTER_SANITIZE_STRING);
+    $address = filter_input(INPUT_POST, 'address', FILTER_SANITIZE_STRING);
     $role = filter_input(INPUT_POST, 'role', FILTER_SANITIZE_STRING);
     $picture_profile = filter_input(INPUT_POST, 'picture_profile', FILTER_SANITIZE_STRING);
-    $register_date = filter_input(INPUT_POST, 'address', FILTER_SANITIZE_STRING);
 
 
-    $sql = "INSERT INTO tb_user (name, email, password, no_tlp, role, picture_profile, register_date)
-    VALUES ('".$name."', '".$email."', '".$password."', '".$no_tlp."', '".$role."', '".$picture_profile."', '".$register_date."')";
+    $sql = "INSERT INTO tb_users (name, email, password, no_tlp, role, picture_profile)
+    VALUES ('".$name."', '".$email."', '".$password."', '".$no_tlp."', '".$role."', '".$picture_profile."')";
 
     if ($conn->query($sql) === TRUE) {
-        header("location:index.php");
+        header("location:login.php");
     } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
     }
