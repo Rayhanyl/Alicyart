@@ -1,18 +1,29 @@
 <?php include('templates/header.php') ?>
 
-<div class="container">
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-sm-4 text-center">
+      <div class="container">
+        <div class="profile">
+          <center>
+            <img src="assets/img/profile/<?php echo $_SESSION['picture_profile'];?>" class="center" style="width:200px;">
+          </center>
+          <p><strong><?php echo $_SESSION['name'];?></strong><br>
+            <p style="font-size:15px;">
+              <?php echo $_SESSION['email'];?><br>
+              <?php echo $_SESSION['no_tlp'];?>
+            </p>
+          </p>
+          <hr>
+          <p class="pb-3">
+          <a href="edit_profile.php" type="button" class="btn btn-primary" style="border-radius:20px;"><?php echo $_SESSION['role'];?></a>
+          </p>
+        </div>
+      </div>
+    </div>
 
-</div>
-
-<!-- Barier -->
-<div class="barier mt-5 mb-3">
-    <center>
-        <p style="font-size:30px;"><strong><i>Product Order</i></strong></p>
-        <hr>
-    </center>
-</div>
-<!-- Barier -->
-
+    <div class="col-sm-8">
+          <p><h3>Order List:</h3></p>
         <div class="container-fluid">
           <table class="table table-striped text-center" style="font-size:15px;">
             <thead>
@@ -21,7 +32,6 @@
                 <th>Customer</th>
                 <th>Product</th>
                 <th>Order</th>
-                <th>Deskripsi</th>
                 <th></th>
                 <th></th>
 
@@ -51,7 +61,6 @@
                 <td><?= $row['name'];?></td>
                 <td><?= $row['product'];?></td>
                 <td><?= $row['judul'];?></td>
-                <td class="justify"><?= $row['o_deskripsi'];?></td>
                 <td>
                   <?php if ($row['faktur'] == null){?>
                     <p>Faktur Tagihan Belum Di Upload</p>
@@ -129,7 +138,6 @@
                                   <form action="verify.php" method="POST">
                                     <input type="hidden" name="id_order" value="<?=$row['id_order'];?>">
                                     <input type="hidden" name="status" value="6">
-                                    <input type="hidden" name="designer" value="">
                                     <center><button type="submit" name="submit" class="btn btn-primary" style="width:50%;">Verified</button></center>
                                   <!-- Pesan di batalkan -->
                                   </form>
@@ -216,8 +224,10 @@
         </li>
       </ul>
   </nav>
-
         </div>
+    </div>
+  </div>
+</div>
 
 
 <!-- Modal Upload Faktur Tagihan -->

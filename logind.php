@@ -27,7 +27,6 @@ if($cek > 0){
             $_SESSION['email'] = $data['email'];
             $_SESSION['no_tlp'] = $data['no_tlp'];
             $_SESSION['picture_profile'] = $data['picture_profile'];
-            $_SESSION['register_date'] = $data['register_date'];
             $_SESSION['role'] = "admin";
             // alihkan ke halaman dashboard admin
             header("location:index.php");
@@ -40,7 +39,6 @@ if($cek > 0){
             $_SESSION['email'] = $data['email'];
             $_SESSION['no_tlp'] = $data['no_tlp'];
             $_SESSION['picture_profile'] = $data['picture_profile'];
-            $_SESSION['register_date'] = $data['register_date'];
             $_SESSION['role'] = "owner";
             // alihkan ke halaman dashboard owner
             header("location:owner_home.php");
@@ -52,7 +50,6 @@ if($cek > 0){
             $_SESSION['email'] = $data['email'];
             $_SESSION['no_tlp'] = $data['no_tlp'];
             $_SESSION['picture_profile'] = $data['picture_profile'];
-            $_SESSION['register_date'] = $data['register_date'];
             $_SESSION['role'] = "designer";
             // alihkan ke halaman dashboard designer
             header("location:designer_home.php");
@@ -64,7 +61,6 @@ if($cek > 0){
             $_SESSION['email'] = $data['email'];
             $_SESSION['no_tlp'] = $data['no_tlp'];
             $_SESSION['picture_profile'] = $data['picture_profile'];
-            $_SESSION['register_date'] = $data['register_date'];
             $_SESSION['role'] = "customer";
             // alihkan ke halaman dashboard customer
             header("location:customer_home.php");

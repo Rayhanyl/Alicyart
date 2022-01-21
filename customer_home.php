@@ -17,7 +17,7 @@
           </p>
           <hr>
           <p class="pb-3">
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myProfile" style="border-radius:20px;">Customer</button>
+          <a href="edit_profile.php" type="button" class="btn btn-primary" style="border-radius:20px;">Customer</a>
           </p>
         </div>
       </div>
@@ -189,42 +189,7 @@
 })
 </script>
 <!------------------------------------------------------- Modal ---------------------------------------------------------------->
-<!-- Edit Profile -->
-<div class="modal" id="myProfile">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <p>Edit Profile</p>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-      <div class="modal-body">
-        <form action="#" method="POST">
-          <div class="form-group">
-            <label>Profile picture :</label>
-            <center>
-            <img src="assets/img/profile/profile.png" class="form-control responsive" style="width:200px;">
-            <input type="file" name="img1" accept="image/*" class="mt-2" required >
-            </center>
-          </div>
-          <div class="form-group">
-            <label>Name :</label>
-            <input type="text" name="name" class="form-control">
-          </div>
-          <div class="form-group">
-            <label>Email :</label>
-            <input type="text" name="name" class="form-control">
-          </div>
-          <div class="form-group">
-            <label>No Telephone :</label>
-            <input type="text" name="name" class="form-control">
-          </div>
-          <button type="submit" class="btn btn-primary" name="edit" style="width:100%;">Edit Profile</button>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- Edit Profile -->
+
 <!-- --------------------------------------------------Detail Order----------------------------------------------------------- -->
 <!-- Modal Upload Bukti Pembayaran -->
 <div class="modal" id="myUpload">
@@ -258,15 +223,14 @@
 </div>
 <!-- Modal Upload Bukti Pembayaran -->
 <!-- --------------------------------------------------Detail Order----------------------------------------------------------- -->
-<!------------------------------------------------------- Modal ---------------------------------------------------------------->
       <?php }?>
+<!------------------------------------------------------- Modal ---------------------------------------------------------------->
         </div>
       </div>
-
     </div>
-
   </div>
 </div>
+
   <nav>
       <ul class="pagination justify-content-center">
         <li class="page-item">
