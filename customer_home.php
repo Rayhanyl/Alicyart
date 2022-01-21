@@ -17,7 +17,7 @@
           </p>
           <hr>
           <p class="pb-3">
-          <a href="edit_profile.php" type="button" class="btn btn-primary" style="border-radius:20px;">Customer</a>
+          <a href="edit_profile.php?id_user=<?= $_SESSION['id_user']?>" type="button" class="btn btn-primary" style="border-radius:20px;"><?= $_SESSION['role'] ?></a>
           </p>
         </div>
       </div>
