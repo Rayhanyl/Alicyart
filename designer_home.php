@@ -33,12 +33,20 @@
                 <th></th>
               </tr>
             </thead>
+            <?php
+
+            $data = mysqli_query($conn,"SELECT * FROM tb_order INNER JOIN tb_users ON tb_order.user = tb_users.id_user INNER JOIN tb_product ON tb_order.product = tb_product.id_product INNER JOIN tb_status ON tb_order.status = tb_status.id_status WHERE designer='".$_SESSION['id_user']."' ");
+            while($row = mysqli_fetch_array($data))
+            // var_dump($row);
+            {
+          ?>
             <tbody>
-                <td>Rayhan yuda</td>
-                <td>Instagram Post</td>
-                <td>Design Simpel aja</td>
-                <td><a href="designer_detail.php" type="button" class="btn btn-primary">Detail Order:</a></td>
+                <td><?= $row[12]?></td>
+                <td><?= $row['product']?></td>
+                <td><?= $row['o_deskripsi']?></td>
+                <td><a href="designer_detail.php?id_order=<?=$row['id_order']?>" type="button" class="btn btn-primary">Detail Order:</a></td>
             </tbody>
+            <?php }?>
           </table>
     </div>
   </div>

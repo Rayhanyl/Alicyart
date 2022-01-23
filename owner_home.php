@@ -120,10 +120,10 @@
                             <select class="form-control" name="designer" id="designer">
                               <option selected>-- Pilih Designer --</option>
                               <?php
-                              $designer = $conn->query('SELECT * FROM tb_designer INNER JOIN tb_users ON tb_designer.user = tb_users.id_user');
+                              $designer = $conn->query('SELECT * FROM tb_users WHERE role = "designer"');
                               while($rowd=$designer->fetch_assoc()){
                                 ?>
-                              <option value="<?= $rowd['id_designer']?>"><?= $rowd['name']?></option>
+                              <option value="<?= $rowd['id_user']?>"><?= $rowd['name']?></option>
                             <?php } ?>
                             </select>
                               <div class="row mt-1">

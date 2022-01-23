@@ -1,7 +1,7 @@
 <?php include('templates/header.php') ?>
 <!-- Query Get ID Product -->
 <?php 
-$data = $conn->query("SELECT * FROM tb_order INNER JOIN tb_users ON tb_order.user = tb_users.id_user INNER JOIN tb_product ON tb_order.product = tb_product.id_product where id_order='".$_GET['id_order']."'");
+$data = $conn->query("SELECT * FROM tb_order INNER JOIN tb_users ON tb_order.designer = tb_users.id_user INNER JOIN tb_product ON tb_order.product = tb_product.id_product where id_order='".$_GET['id_order']."'");
 // $row = $data->fetch_assoc()
 ?>
           <?php while($row = $data->fetch_assoc()) { ?> 
@@ -34,10 +34,12 @@ $data = $conn->query("SELECT * FROM tb_order INNER JOIN tb_users ON tb_order.use
       <div class="row">
         <div class="col-md">
           <p>Sketsa Awal :</p>
+          <?= $row['s_awal']?>
           <img src="assets/img/faktur.png" class="responsive" style="width:350px;">
         </div>
         <div class="col-md">
           <p>Hasil Akhir :</p>
+          <?= $row['s_akhir']?> <!-- ini nanti buat yang gambar -->
           <img src="assets/img/faktur.png" class="responsive" style="width:350px;">
           <button type="submit" class="btn btn-primary mt-2" style="width:100%;">Acc Sketsa</button>
         </div>

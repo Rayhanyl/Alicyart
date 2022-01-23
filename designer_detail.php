@@ -8,19 +8,24 @@
   <?php } ?>
   <hr style="height:1px;border:none;color:#333;background-color:#333;">
   <div class="container-fluid">
+      <?php
+        $data = $conn->query("SELECT * FROM tb_order INNER JOIN tb_users ON tb_order.user = tb_users.id_user INNER JOIN tb_product ON tb_order.product = tb_product.id_product WHERE id_order='".$_GET['id_order']."' ");
+        
+      ?>
+      <?php while($row = $data->fetch_assoc()) { ?>
     <div class="row">
       <div class="col-md-4 ">
         <p>Customer detail:</p>
-        <p><i class="fas fa-user"></i> Rayhan yuda lesmana</p>
+        <p><i class="fas fa-user"></i> <?= $row['name']?></p>
         <hr>
-        <p><i class="fas fa-envelope"></i> Rayhanyuda@gmail.com</p>
+        <p><i class="fas fa-envelope"></i> <?= $row['email']?></p>
         <hr>
-        <p><i class="fas fa-phone-square-alt"></i> 082112440715</p>
+        <p><i class="fas fa-phone-square-alt"></i> <?= $row['no_tlp']?></p>
         <hr>
       </div>
       <div class="col-md-8">
         <p>Deskripsi :</p>
-        <textarea class="form-control" rows="6" style="text-align: justify;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</textarea>
+        <textarea class="form-control" rows="6" style="text-align: justify;"><?= $row['o_deskripsi']?></textarea>
 
       </div>
     </div>
@@ -43,5 +48,5 @@
   </div>
     <hr style="height:1px;border:none;color:#333;background-color:#333;">
 </div>
-
+<?php }?>
 <?php include('templates/footer.php') ?>
