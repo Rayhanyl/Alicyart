@@ -1,17 +1,23 @@
 <?php include('templates/header.php') ?>
 
+<?php 
+$data = $conn->query("SELECT * FROM tb_users WHERE id_user='".$_SESSION['id_user']."'");
+// $row = $data->fetch_assoc()
+?>
+<?php $user = $data->fetch_assoc() ?> 
+
 <div class="container mt-5">
   <div class="row">
     <div class="col-sm-4 text-center">
       <div class="container">
         <div class="profile">
           <center>
-            <img src="assets/img/profile/<?php echo $_SESSION['picture_profile'];?>" class="center" style="width:200px;">
+            <img src="assets/img/profile/<?php echo $user['picture_profile'];?>" class="center" style="width:200px;">
           </center>
-          <p><strong><?php echo $_SESSION['name'];?></strong><br>
+          <p><strong><?= $user['name'];?></strong><br>
             <p style="font-size:15px;">
-              <?php echo $_SESSION['email'];?><br>
-              <?php echo $_SESSION['no_tlp'];?>
+              <?php echo $user['email'];?><br>
+              <?php echo $user['no_tlp'];?>
             </p>
           </p>
           <hr>
@@ -62,11 +68,8 @@
                 <td><?= $row['product'];?></td>
                 <td><?= $row['judul'];?></td>
                 <td>
-                  <?php if ($row['faktur'] == null){?>
-                    <p>Faktur Tagihan Belum Di Upload</p>
-                  <?php } else { ?>
-                  <?php if ($row['invoice'] == null){?>
-                    <p>Belum transfer</p>
+                  <?php if ($row['status'] == '6'){?>
+                    <p>Pesanan Dibatalkan</p>
                   <?php } else { ?>
                   <?php if ($row['status'] == '2'){?>
                     <p>Sudah Transfer</p>
@@ -77,20 +80,23 @@
                   <?php if ($row['status'] == '4'){?>
                     <p>Pesanan Selesai</p>
                   <?php } else { ?>
-                  <?php if ($row['status'] == '6'){?>
-                    <p>Pesanan Dibatalkan</p>
+                  <?php if ($row['invoice'] == null){?>
+                    <p>Belum transfer</p>
+                  <?php } else { ?>
+                  <?php if ($row['faktur'] == null){?>
+                    <p>Faktur Tagihan Belum Di Upload</p>
                   <?php } } } } } }?>
                 </td>
                 <td>
                   <button type="button" class="btn btn-primary mb-1" data-toggle="modal" data-target="#myDetail<?=$row['id_order'];?>"style="width:100%;">
                     Detail
                   </button>
-                  <?php if ($row['faktur'] == null) {?>
-                  <a class="btn-faktur btn btn-success mt-1" data-toggle="modal" data-target="#myFaktur" 
-                  data-order="<?= $row['id_order'];?>" data-product="<?= $row['product'];?>" style="width:100%;">
-                  Upload Faktur</a>
-                  <?php} else { ?>
+                  <?php if($row['status'] == '6'){ ?>
 
+                  <?php } else { ?>
+                    <a class="btn-faktur btn btn-success mt-1" data-toggle="modal" data-target="#myFaktur" 
+                    data-order="<?= $row['id_order'];?>" data-product="<?= $row['product'];?>" style="width:100%;">
+                    Upload Faktur</a>                   
                   <?php } ?>
                 </td>
               </tr>
@@ -111,6 +117,7 @@
                       <!-- Body -->
                       <div class="modal-body">
                         <div class="container">
+
                           <?php if($row['invoice'] == null ){ ?>
                           <?php } else { ?>
                           <hr>
@@ -120,10 +127,10 @@
                             <select class="form-control" name="designer" id="designer">
                               <option selected>-- Pilih Designer --</option>
                               <?php
-                              $designer = $conn->query('SELECT * FROM tb_designer INNER JOIN tb_users ON tb_designer.user = tb_users.id_user');
+                              $designer = $conn->query('SELECT * FROM tb_users WHERE role = "designer"');
                               while($rowd=$designer->fetch_assoc()){
                                 ?>
-                              <option value="<?= $rowd['id_designer']?>"><?= $rowd['name']?></option>
+                              <option value="<?= $rowd['id_user']?>"><?= $rowd['name']?></option>
                             <?php } ?>
                             </select>
                               <div class="row mt-1">
@@ -135,10 +142,10 @@
                               </form>
                                 </div>
                                 <div class="col">
-                                  <form action="verify.php" method="POST">
+                                  <form action="batalkan_pesan.php" method="POST">
                                     <input type="hidden" name="id_order" value="<?=$row['id_order'];?>">
                                     <input type="hidden" name="status" value="6">
-                                    <center><button type="submit" name="submit" class="btn btn-primary" style="width:50%;">Verified</button></center>
+                                    <center><button type="submit" name="submit" class="btn btn-danger" style="width:50%;">Pesan Dibatalkan</button></center>
                                   <!-- Pesan di batalkan -->
                                   </form>
                                 </div>
@@ -196,6 +203,13 @@
                             </div>
                           </div>
                           <hr>
+                          <div class="row mt-2">
+                            <form action="batalkan_pesan.php" method="POST">
+                              <input type="hidden" name="id_order" value="<?=$row['id_order'] ?>">
+                              <input type="hidden" name="status" value="6">
+                              <button type="submit" class="btn btn-danger" style="width:100%;">Batalkan Pesan</button>
+                            </form>
+                          </div>
                         </div>
                       </div>
                       <!-- Body -->

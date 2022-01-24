@@ -1,5 +1,11 @@
 <?php include('templates/header.php') ?>
 
+
+<?php 
+$data = $conn->query("SELECT * FROM tb_users WHERE id_user='".$_SESSION['id_user']."'");
+// $row = $data->fetch_assoc()
+?>
+<?php $user = $data->fetch_assoc() ?> 
 <div class="container mt-5">
   <div class="row">
 
@@ -7,12 +13,12 @@
       <div class="container">
         <div class="profile">
           <center>
-            <img src="assets/img/profile/<?php echo $_SESSION['picture_profile'];?>" class="center" style="width:200px;">
+            <img src="assets/img/profile/<?php echo $user['picture_profile'];?>" class="center" style="width:200px;">
           </center>
-          <p><strong><?php echo $_SESSION['name'];?></strong><br>
+          <p><strong><?= $user['name'];?></strong><br>
             <p style="font-size:15px;">
-              <?php echo $_SESSION['email'];?><br>
-              <?php echo $_SESSION['no_tlp'];?>
+              <?php echo $user['email'];?><br>
+              <?php echo $user['no_tlp'];?>
             </p>
           </p>
           <hr>
@@ -82,9 +88,12 @@
                       <?php if ( $row['status'] == '3'){ ?>
                       <a href="design_progres.php?id_order=<?=$row['id_order']?>" type="button" class="btn btn-info">Pengerjaan Design</a>
                       <?php } else { ?>
+                      <?php if ( $row['status'] == '4'){ ?>
+                      <button type="button" class="btn btn-success">Pesanan Selesai</button>
+                      <?php } else { ?>
                       <?php if ( $row['status'] == '6'){ ?>
                       <button type="button" class="btn btn-danger">Pesanan Dibatalkan</button>
-                    <?php } } } } }?>
+                    <?php } } } } } }?>
                     </div>
                   </div>
                 </div>

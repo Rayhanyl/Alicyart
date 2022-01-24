@@ -1,5 +1,13 @@
 <?php include('templates/header.php') ?>
 
+
+<?php 
+$data = $conn->query("SELECT * FROM tb_users WHERE id_user='".$_SESSION['id_user']."'");
+// $row = $data->fetch_assoc()
+?>
+<?php $user = $data->fetch_assoc() ?>
+
+
 <div class="container mt-5">
 <!-- Container START -->
 	 <?php if($_SESSION['role'] == 'customer'){ ?>
@@ -30,27 +38,29 @@
 			          Form Edit Profile
 			        </div>
 			        <div class="card-body">
-					  <form action="support_proses.php" method="POST">
+					  <form action="update_profile.php" method="POST" enctype="multipart/form-data">
+					  <input type="hidden" name="id_user" value="<?=$_SESSION['id_user'] ?>">
+
 					  <div class="form-group">
 					  	<center>
-					  		<img src="assets/img/profile/<?php echo htmlentities($_SESSION['picture_profile']);?>" style="width: 200px;"><br>
+					  		<img src="assets/img/profile/<?php echo htmlentities($user['picture_profile']);?>" style="width: 200px;"><br>
 					  	</center>
 					  </div>
 					  <div class="form-group">
 					    <label for="persentase">Nama :</label>
-					    <input type="text" class="form-control" placeholder="Persentase" name="persentase" value="<?= $_SESSION['name'] ?>">
+					    <input type="text" class="form-control" name="name" value="<?= $user['name'] ?>">
 					  </div>
 					  <div class="form-group">
 					    <label for="due_date">Email :</label>
-					    <input type="email" class="form-control" placeholder="Deadline" name="due_date" value="<?= $_SESSION['email'] ?>">
+					    <input type="email" class="form-control" name="email" value="<?= $user['email'] ?>">
 					  </div>
 					  <div class="form-group">
 					    <label for="keterangan">No Telephone :</label>
-					    <input type="text" class="form-control" placeholder="Keterangan" name="keterangan" value="<?= $_SESSION['no_tlp'] ?>">
+					    <input type="text" class="form-control" name="no_tlp" value="<?= $user['no_tlp'] ?>">
 					  </div>
 					  <div class="form-group">
 					  	<label>Picture Profile :</label>
-					  	<input class="form-control" type="file" name="img1" accept="image/*" required>
+					  	<input class="form-control" type="file" name="img1" accept="image/*" value="<?= $user['picture_profile'];?>">
 					  </div>
 					  <button type="submit" class="btn btn-success" style="width:100%;">Edit PRofile</button>
 					</form>
