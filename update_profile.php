@@ -10,8 +10,12 @@ session_start();
         $no_tlp = $_POST['no_tlp'];
 
         move_uploaded_file($_FILES["img1"]["tmp_name"],"assets/img/profile/".$newimg1);
-
-        $sql="UPDATE tb_users SET picture_profile='$newimg1', name='$name', email='$email', no_tlp='$no_tlp'  WHERE id_user='$id_user'";
+        if (isset($newimg1)) {
+            $sql="UPDATE tb_users SET name='$name', email='$email', no_tlp='$no_tlp'  WHERE id_user='$id_user'";
+        } else {
+            $sql="UPDATE tb_users SET picture_profile='$newimg1', name='$name', email='$email', no_tlp='$no_tlp'  WHERE id_user='$id_user'";
+        }
+        
         $lastInsertId = mysqli_query($conn, $sql);
         if($lastInsertId){
             echo "<script>alert('Update Profile Berhasil .');</script>";
