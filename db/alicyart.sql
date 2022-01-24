@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 21, 2022 at 08:11 AM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.10
+-- Waktu pembuatan: 24 Jan 2022 pada 04.57
+-- Versi server: 10.4.14-MariaDB
+-- Versi PHP: 7.4.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_category`
+-- Struktur dari tabel `tb_category`
 --
 
 CREATE TABLE `tb_category` (
@@ -33,7 +33,7 @@ CREATE TABLE `tb_category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tb_category`
+-- Dumping data untuk tabel `tb_category`
 --
 
 INSERT INTO `tb_category` (`id`, `category_name`) VALUES
@@ -45,7 +45,7 @@ INSERT INTO `tb_category` (`id`, `category_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_design`
+-- Struktur dari tabel `tb_design`
 --
 
 CREATE TABLE `tb_design` (
@@ -58,7 +58,7 @@ CREATE TABLE `tb_design` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_designer`
+-- Struktur dari tabel `tb_designer`
 --
 
 CREATE TABLE `tb_designer` (
@@ -68,7 +68,7 @@ CREATE TABLE `tb_designer` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tb_designer`
+-- Dumping data untuk tabel `tb_designer`
 --
 
 INSERT INTO `tb_designer` (`id_designer`, `user`, `keterangan`) VALUES
@@ -78,7 +78,7 @@ INSERT INTO `tb_designer` (`id_designer`, `user`, `keterangan`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_order`
+-- Struktur dari tabel `tb_order`
 --
 
 CREATE TABLE `tb_order` (
@@ -90,13 +90,22 @@ CREATE TABLE `tb_order` (
   `invoice` varchar(255) NOT NULL,
   `faktur` varchar(255) NOT NULL,
   `status` int(11) NOT NULL,
-  `designer` int(11) DEFAULT NULL
+  `designer` int(11) DEFAULT NULL,
+  `s_awal` varchar(255) NOT NULL,
+  `s_akhir` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `tb_order`
+--
+
+INSERT INTO `tb_order` (`id_order`, `user`, `product`, `o_deskripsi`, `file`, `invoice`, `faktur`, `status`, `designer`, `s_awal`, `s_akhir`) VALUES
+(63, 7, 2, 'SAD', 'john.jpg', '23012022061736john.jpg', '23012022061720john.jpg', 3, 2, '23012022204208', '');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_product`
+-- Struktur dari tabel `tb_product`
 --
 
 CREATE TABLE `tb_product` (
@@ -110,7 +119,7 @@ CREATE TABLE `tb_product` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tb_product`
+-- Dumping data untuk tabel `tb_product`
 --
 
 INSERT INTO `tb_product` (`id_product`, `category`, `product`, `judul`, `deskripsi`, `harga`, `p_product`) VALUES
@@ -137,7 +146,7 @@ INSERT INTO `tb_product` (`id_product`, `category`, `product`, `judul`, `deskrip
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_status`
+-- Struktur dari tabel `tb_status`
 --
 
 CREATE TABLE `tb_status` (
@@ -146,7 +155,7 @@ CREATE TABLE `tb_status` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tb_status`
+-- Dumping data untuk tabel `tb_status`
 --
 
 INSERT INTO `tb_status` (`id_status`, `name`) VALUES
@@ -161,7 +170,7 @@ INSERT INTO `tb_status` (`id_status`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_users`
+-- Struktur dari tabel `tb_users`
 --
 
 CREATE TABLE `tb_users` (
@@ -175,7 +184,7 @@ CREATE TABLE `tb_users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tb_users`
+-- Dumping data untuk tabel `tb_users`
 --
 
 INSERT INTO `tb_users` (`id_user`, `name`, `email`, `password`, `no_tlp`, `role`, `picture_profile`) VALUES
@@ -190,26 +199,26 @@ INSERT INTO `tb_users` (`id_user`, `name`, `email`, `password`, `no_tlp`, `role`
 --
 
 --
--- Indexes for table `tb_category`
+-- Indeks untuk tabel `tb_category`
 --
 ALTER TABLE `tb_category`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tb_design`
+-- Indeks untuk tabel `tb_design`
 --
 ALTER TABLE `tb_design`
   ADD PRIMARY KEY (`id_design`);
 
 --
--- Indexes for table `tb_designer`
+-- Indeks untuk tabel `tb_designer`
 --
 ALTER TABLE `tb_designer`
   ADD PRIMARY KEY (`id_designer`),
   ADD KEY `user` (`user`);
 
 --
--- Indexes for table `tb_order`
+-- Indeks untuk tabel `tb_order`
 --
 ALTER TABLE `tb_order`
   ADD PRIMARY KEY (`id_order`),
@@ -219,82 +228,82 @@ ALTER TABLE `tb_order`
   ADD KEY `designer` (`designer`);
 
 --
--- Indexes for table `tb_product`
+-- Indeks untuk tabel `tb_product`
 --
 ALTER TABLE `tb_product`
   ADD PRIMARY KEY (`id_product`),
   ADD KEY `category` (`category`);
 
 --
--- Indexes for table `tb_status`
+-- Indeks untuk tabel `tb_status`
 --
 ALTER TABLE `tb_status`
   ADD PRIMARY KEY (`id_status`);
 
 --
--- Indexes for table `tb_users`
+-- Indeks untuk tabel `tb_users`
 --
 ALTER TABLE `tb_users`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `tb_category`
+-- AUTO_INCREMENT untuk tabel `tb_category`
 --
 ALTER TABLE `tb_category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `tb_design`
+-- AUTO_INCREMENT untuk tabel `tb_design`
 --
 ALTER TABLE `tb_design`
   MODIFY `id_design` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `tb_designer`
+-- AUTO_INCREMENT untuk tabel `tb_designer`
 --
 ALTER TABLE `tb_designer`
   MODIFY `id_designer` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `tb_order`
+-- AUTO_INCREMENT untuk tabel `tb_order`
 --
 ALTER TABLE `tb_order`
-  MODIFY `id_order` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `id_order` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
--- AUTO_INCREMENT for table `tb_product`
+-- AUTO_INCREMENT untuk tabel `tb_product`
 --
 ALTER TABLE `tb_product`
   MODIFY `id_product` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
--- AUTO_INCREMENT for table `tb_status`
+-- AUTO_INCREMENT untuk tabel `tb_status`
 --
 ALTER TABLE `tb_status`
   MODIFY `id_status` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `tb_users`
+-- AUTO_INCREMENT untuk tabel `tb_users`
 --
 ALTER TABLE `tb_users`
   MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `tb_designer`
+-- Ketidakleluasaan untuk tabel `tb_designer`
 --
 ALTER TABLE `tb_designer`
   ADD CONSTRAINT `tb_designer_ibfk_1` FOREIGN KEY (`user`) REFERENCES `tb_users` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `tb_order`
+-- Ketidakleluasaan untuk tabel `tb_order`
 --
 ALTER TABLE `tb_order`
   ADD CONSTRAINT `tb_order_ibfk_1` FOREIGN KEY (`product`) REFERENCES `tb_product` (`id_product`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -303,7 +312,7 @@ ALTER TABLE `tb_order`
   ADD CONSTRAINT `tb_order_ibfk_4` FOREIGN KEY (`designer`) REFERENCES `tb_designer` (`id_designer`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `tb_product`
+-- Ketidakleluasaan untuk tabel `tb_product`
 --
 ALTER TABLE `tb_product`
   ADD CONSTRAINT `tb_product_ibfk_1` FOREIGN KEY (`category`) REFERENCES `tb_category` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
