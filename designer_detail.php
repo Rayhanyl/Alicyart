@@ -32,13 +32,20 @@
     <hr>
     <div class="row">
       <div class="col-md-4">
+      <form method="post" action="upload_sketsa.php" name="imageform" id="imageform">
         <p>Sketsa awal :</p>
         <center><img src="assets/img/content.png" class=" rounded responsive" style="width:300px;"></center>
-        <button type="button" class="btn btn-primary mt-1" style="width:100%;">Submit Sketsa</button>
+        
+          Upload Sketsa : <input type="file" name="sketsa_awal" id='fileupload1'>
+        <!-- <button type="button" class="btn btn-primary mt-1" style="width:100%;">Submit Sketsa</button> -->
         <hr>
+        <input type="hidden" name="id_order" value="<?= $row['id_order']?>">
         <p>Skeksa akhir :</p>
         <center><img src="assets/img/content.png" class=" rounded responsive" style="width:300px;"></center>
-        <button type="button" class="btn btn-primary mt-1" style="width:100%;">Submit Sketsa</button>
+          Upload Sketsa : <input type="file" name="sketsa_akhir" id='fileupload2'>
+        <!-- <button type="button" class="btn btn-primary mt-1" style="width:100%;">Submit Sketsa</button>
+       -->
+       </form>
       </div>
       <div class="col-md-8">
         <p>File Tambahan :</p>
@@ -49,4 +56,13 @@
     <hr style="height:1px;border:none;color:#333;background-color:#333;">
 </div>
 <?php }?>
+
+<script>
+  document.getElementById("fileupload1").onchange = function() {
+    document.getElementById("imageform").submit();
+}
+document.getElementById("fileupload2").onchange = function() {
+    document.getElementById("imageform").submit();
+}
+</script>
 <?php include('templates/footer.php') ?>
