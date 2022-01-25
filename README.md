@@ -1,4 +1,4 @@
 # Alicyart
 
 Deadline Project Tanggal 27 Januari
-Progres Project 80%
+Progres Project 90%
