@@ -217,7 +217,7 @@
               <h4>File Tambahan:</h4>
               <p style="font-size:15px;">Note: Hanya untuk extensi PNG,PDF</p>
             </label>
-            <input type="file" name="file" class="form-control">
+            <input type="file" name="file[]" class="form-control" multiple>
           </div>
           <input type="hidden" name="designer" value="">
           <input type="hidden" name="faktur" value="">
