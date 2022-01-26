@@ -37,11 +37,11 @@
             <div class="input-boxes">
               <div class="input-box">
                 <i class="fas fa-envelope"></i>
-                <input type="text" placeholder="Enter your email" name="email" required>
+                <input type="text" placeholder="Masukan Email" name="email" required>
               </div>
               <div class="input-box">
                 <i class="fas fa-lock"></i>
-                <input type="password" placeholder="Enter your password" name="password" required>
+                <input type="password" placeholder="Masukan Password" name="password" required>
               </div>
               <div class="text"><a href="index.php">Back To Home</a></div>
               <div class="button input-box">
@@ -60,19 +60,19 @@
             <div class="input-boxes">
               <div class="input-box">
                 <i class="fas fa-user"></i>
-                <input type="text" placeholder="Enter your name" name="name" required>
+                <input type="text" placeholder="Masukan Nama Lengkap" name="name" required>
               </div>
               <div class="input-box">
                 <i class="fas fa-envelope"></i>
-                <input type="text" placeholder="Enter your email" name="email" required>
+                <input type="text" placeholder="Masukan Email" name="email" required>
               </div>
               <div class="input-box">
                 <i class="fas fa-lock"></i>
-                <input type="password" placeholder="Enter your password" name="password" required>
+                <input type="password" placeholder="Masukan Password" name="password" required>
               </div>
               <div class="input-box">
                 <i class="fas fa-phone-square-alt"></i>
-                <input type="text" placeholder="Enter your telephone number" name="no_tlp" required>
+                <input type="text" placeholder="62... Masukan No" name="no_tlp" required>
               </div>
               <div class="button input-box">
                 <input type="submit" value="Sumbit" name="register">

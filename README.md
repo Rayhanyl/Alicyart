@@ -1,6 +1,6 @@
 # Alicyart
 Deadline Project Tanggal 27 Januari
-Progres Project 95%
+Progres Project 99%
 
 #Tugas Belom Kelar
-Hosting gratis & Link Wa 
+Hosting gratis
