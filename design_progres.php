@@ -23,8 +23,8 @@ $data = $conn->query("SELECT * FROM tb_order INNER JOIN tb_users ON tb_order.des
       <hr>
       <p><i class="fas fa-envelope"></i> <?= $row['email']?></p>
       <hr>
-      <p>Konsultasi via Whatsup:</p>
-      <p><i class="fas fa-phone-square-alt"></i> <?= $row['no_tlp']?></p>
+      <p>Konsultasi via WhatsApp:</p>
+      <p><i class="fas fa-phone-square-alt"></i> <a href="https://api.whatsapp.com/send?phone=<?= $row['no_tlp']?>"><?= $row['no_tlp']?></a></p>
       <hr>
       <p class="btn btn-success" style="width:100%; border-radius:20px;">Designer</p>
     </div>
