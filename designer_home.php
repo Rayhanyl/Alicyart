@@ -13,7 +13,7 @@ $data = $conn->query("SELECT * FROM tb_users WHERE id_user='".$_SESSION['id_user
       <div class="container">
         <div class="profile">
           <center>
-            <img src="assets/img/profile/<?php echo $user['picture_profile'];?>" class="center" style="width:200px;">
+            <img src="assets/img/profile/<?php echo $user['picture_profile'];?>" class="center rounded-circle" style="width:200px;">
           </center>
           <p><strong><?= $user['name'];?></strong><br>
             <p style="font-size:15px;">

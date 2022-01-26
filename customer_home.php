@@ -13,7 +13,7 @@ $data = $conn->query("SELECT * FROM tb_users WHERE id_user='".$_SESSION['id_user
       <div class="container">
         <div class="profile">
           <center>
-            <img src="assets/img/profile/<?php echo $user['picture_profile'];?>" class="center" style="width:200px;">
+            <img src="assets/img/profile/<?php echo $user['picture_profile'];?>" class="center rounded-circle mt-1 mb-1" style="width:200px;">
           </center>
           <p><strong><?= $user['name'];?></strong><br>
             <p style="font-size:15px;">
@@ -50,7 +50,6 @@ $data = $conn->query("SELECT * FROM tb_users WHERE id_user='".$_SESSION['id_user
         $data = mysqli_query($conn,"SELECT * FROM tb_order INNER JOIN tb_users ON tb_order.user = tb_users.id_user INNER JOIN tb_product ON tb_order.product = tb_product.id_product INNER JOIN tb_status ON tb_order.status = tb_status.id_status WHERE user='".$_SESSION['id_user']."' limit $halaman_awal, $batas");
         while($row = mysqli_fetch_array($data))
         {
-          var_dump($row);
           ?>
           <hr style="height:2px;border:none;color:#333;background-color:#333;">
           <div class="row">
@@ -182,9 +181,9 @@ $data = $conn->query("SELECT * FROM tb_users WHERE id_user='".$_SESSION['id_user
                                 </td>
                               </tr>
                               <tr class="mt-3">
-                                <td>File Tambahan</td>
+                                <td>Lihat File Tambahan</td>
                                 <td>:</td>
-                                <td>
+                             <td>
                                   <?php if ($row['file'] == null ){?>
                                   <p class="mt-4">Tidak Ada File Tambahan</p>
                                   <?php } else { ?>
@@ -194,7 +193,7 @@ $data = $conn->query("SELECT * FROM tb_users WHERE id_user='".$_SESSION['id_user
                                   ?>
                                   <?php foreach ($all_files as $files) { ?>
                                   <center>
-                                    <iframe class="responsive" src="assets/img/file/<?php echo htmlentities($files);?>"
+                                    <iframe class="responsive mt-5" src="assets/img/file/<?php echo htmlentities($files);?>"
                                       frameBorder="0">
                                     </iframe>
                                     <p><?= $files;?></p>
