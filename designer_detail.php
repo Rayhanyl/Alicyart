@@ -61,7 +61,16 @@
           <?php if ($row['file'] == null ){?>
             <p>Tidak Ada File Tambahan</p>
           <?php }else { ?>
-            <iframe class="responsive" src="assets/img/file/<?php echo htmlentities($row['file']);?>" style="height: 760px; border: none"></iframe>
+        <?php  
+          $all_files = explode(",",$row['file']);
+          array_pop($all_files); 
+        ?>
+        <?php foreach ($all_files as $files) { ?>
+          <center>
+            <iframe class="responsive" src="assets/img/file/<?php echo htmlentities($files);?>" frameBorder="0" style="height:200px;"></iframe>
+            <p><?= $files;?></p>
+          </center>
+        <?php }?>
         <?php }?>
       </div>
     </div>

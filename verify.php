@@ -4,7 +4,7 @@ session_start();
         
         $id_order = $_POST['id_order'];
         $status = $_POST['status'];
-        $designer = $_POST['designer']
+        $designer = $_POST['designer'];
 
         $sql="UPDATE tb_order SET status='$status', designer=$designer WHERE id_order='$id_order'";
         $lastInsertId = mysqli_query($conn, $sql);

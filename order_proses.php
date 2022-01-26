@@ -16,8 +16,8 @@ session_start();
 			//   var_dump($filename);
 			}
 
-			$x = explode('.', $nama);
-			$ekstensi = strtolower(end($x));
+			// $x = explode('.', $nama);
+			// $ekstensi = strtolower(end($x));
 			// $ukuran	= $_FILES['file']['size'];
 			// $file_tmp = $_FILES['file']['tmp_name'];
 			$id_product = $_POST['id_product'];

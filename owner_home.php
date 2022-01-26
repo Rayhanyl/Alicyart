@@ -8,13 +8,16 @@ $data = $conn->query("SELECT * FROM tb_users WHERE id_user='".$_SESSION['id_user
 
 <div class="container mt-5">
   <div class="row">
+
+<!-- Profile -->
     <div class="col-sm-4 text-center">
       <div class="container">
         <div class="profile">
           <center>
-            <img src="assets/img/profile/<?php echo $user['picture_profile'];?>" class="center" style="width:200px;">
+            <img src="assets/img/profile/<?php echo $user['picture_profile'];?>" class="center rounded-circle" style="width:200px;">
           </center>
-          <p><strong><?= $user['name'];?></strong><br>
+          <p>
+            <strong><?= $user['name'];?></strong><br>
             <p style="font-size:15px;">
               <?php echo $user['email'];?><br>
               <?php echo $user['no_tlp'];?>
@@ -28,6 +31,7 @@ $data = $conn->query("SELECT * FROM tb_users WHERE id_user='".$_SESSION['id_user
       </div>
     </div>
 
+<!-- Order List -->
     <div class="col-sm-8">
           <p><h3>Order List:</h3></p>
         <div class="container-fluid">
@@ -80,11 +84,14 @@ $data = $conn->query("SELECT * FROM tb_users WHERE id_user='".$_SESSION['id_user
                   <?php if ($row['status'] == '4'){?>
                     <p>Pesanan Selesai</p>
                   <?php } else { ?>
-                  <?php if ($row['invoice'] == null){?>
-                    <p>Belum transfer</p>
-                  <?php } else { ?>
                   <?php if ($row['faktur'] == null){?>
                     <p>Faktur Tagihan Belum Di Upload</p>
+                  <?php } else { ?>
+                  <?php if ($row['invoice'] == null){?>
+                    <p>Belum transfer<br>
+                      <hr>
+                      Fakut Telah Di Upload
+                    </p>
                   <?php } } } } } }?>
                 </td>
                 <td>
@@ -194,12 +201,19 @@ $data = $conn->query("SELECT * FROM tb_users WHERE id_user='".$_SESSION['id_user
                             <?php if ($row['file'] == null ){?>
                               <p>Tidak Ada File Tambahan</p>
                             <?php }else { ?>
-                            <center> 
-                                  <iframe class="responsive" src="assets/img/file/<?php echo htmlentities($row['file']);?>" frameBorder="0">
-                                  </iframe>
-                                  <p><?= $row['file'];?></p>
-                            </center>
-                          <?php }?>
+                            <?php  
+                                  $all_files = explode(",",$row['file']);
+                                  array_pop($all_files); 
+                                  ?>
+                                  <?php foreach ($all_files as $files) { ?>
+                                  <center>
+                                    <iframe class="responsive mt-5" src="assets/img/file/<?php echo htmlentities($files);?>"
+                                      frameBorder="0">
+                                    </iframe>
+                                    <p><?= $files;?></p>
+                                  </center>
+                                  <?php }?>
+                                  <?php }?>
                             </div>
                           </div>
                           <hr>
