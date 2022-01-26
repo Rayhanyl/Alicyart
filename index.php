@@ -69,9 +69,7 @@
       </div>
       <div class="col-md-7 animate__animated animate__fadeInUp animate__delay-1s" style="padding-top:50px;">
         <div class="container-fluid">
-          <center>
-              <img src="assets/img/backs1.jpg" class="responsive rounded-circle" width="400">
-          </center>
+
         </div>
       </div>
     </div>
