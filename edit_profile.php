@@ -65,14 +65,14 @@ $data = $conn->query("SELECT * FROM tb_users WHERE id_user='".$_SESSION['id_user
 					    <input type="email" class="form-control" name="email" value="<?= $user['email'] ?>">
 					  </div>
 					  <div class="form-group">
-					    <label for="keterangan">No Telephone :</label>
+					    <label for="keterangan">No Telephone : 62..</label>
 					    <input type="text" class="form-control" name="no_tlp" value="<?= $user['no_tlp'] ?>">
 					  </div>
 					  <div class="form-group">
 					  	<label>Picture Profile :</label>
 					  	<input class="form-control" type="file" name="img1" accept="image/*" value="<?= $user['picture_profile'];?>">
 					  </div>
-					  <button type="submit" class="btn btn-success" style="width:100%;">Edit PRofile</button>
+					  <button type="submit" class="btn btn-success" style="width:100%;">Edit Profile</button>
 					</form>
 			        </div>
 			    </div>

@@ -45,11 +45,14 @@ $data = $conn->query("SELECT * FROM tb_order INNER JOIN tb_users ON tb_order.des
           <?php if ($row['s_akhir']== null)  { ?>
 
           <?php } else { ?>
+          <?php if ( $row['status'] == '4'){ ?>
+            <button class="btn btn-success mt-2" style="width:100%;">Pesanan Selesai</button>
+           <?php } else { ?> 
             <form action="acc_sketsa.php" method="POST">
             <input type="hidden" name="id_order" value="<?= $row['id_order']?>">
             <button type="submit" class="btn btn-primary mt-2" style="width:100%;">Acc Sketsa</button>
             </form>
-          <?php } ?>
+          <?php } }?>
         </div>
       </div>
       <hr style="height:1px;border:none;color:#333;background-color:#333; opacity:0.5;">

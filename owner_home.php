@@ -20,7 +20,7 @@ $data = $conn->query("SELECT * FROM tb_users WHERE id_user='".$_SESSION['id_user
             <strong><?= $user['name'];?></strong><br>
             <p style="font-size:15px;">
               <?php echo $user['email'];?><br>
-              <?php echo $user['no_tlp'];?>
+              +<?php echo $user['no_tlp'];?>
             </p>
           </p>
           <hr>

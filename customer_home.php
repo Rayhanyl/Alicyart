@@ -18,7 +18,7 @@ $data = $conn->query("SELECT * FROM tb_users WHERE id_user='".$_SESSION['id_user
           <p><strong><?= $user['name'];?></strong><br>
             <p style="font-size:15px;">
               <?php echo $user['email'];?><br>
-              <?php echo $user['no_tlp'];?>
+              +<?php echo $user['no_tlp'];?>
             </p>
           </p>
           <hr>
@@ -94,7 +94,8 @@ $data = $conn->query("SELECT * FROM tb_users WHERE id_user='".$_SESSION['id_user
                         class="btn btn-info">Pengerjaan Design</a>
                       <?php } else { ?>
                       <?php if ( $row['status'] == '4'){ ?>
-                      <button type="button" class="btn btn-success">Pesanan Selesai</button>
+                      <a href="design_progres.php?id_order=<?=$row['id_order']?>" type="button"
+                        class="btn btn-success">Pesanan Selesai</a>
                       <?php } else { ?>
                       <?php if ( $row['status'] == '6'){ ?>
                       <button type="button" class="btn btn-danger">Pesanan Dibatalkan</button>

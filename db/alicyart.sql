@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 21, 2022 at 08:11 AM
+-- Generation Time: Jan 26, 2022 at 07:06 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -45,19 +45,6 @@ INSERT INTO `tb_category` (`id`, `category_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tb_design`
---
-
-CREATE TABLE `tb_design` (
-  `id_design` int(11) NOT NULL,
-  `p_order` int(11) NOT NULL,
-  `s_awal` varchar(255) NOT NULL,
-  `s_akhir` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `tb_designer`
 --
 
@@ -72,8 +59,7 @@ CREATE TABLE `tb_designer` (
 --
 
 INSERT INTO `tb_designer` (`id_designer`, `user`, `keterangan`) VALUES
-(1, 2, 'Availabe'),
-(2, 8, 'Availabe');
+(1, 2, 'Availabe');
 
 -- --------------------------------------------------------
 
@@ -90,7 +76,9 @@ CREATE TABLE `tb_order` (
   `invoice` varchar(255) NOT NULL,
   `faktur` varchar(255) NOT NULL,
   `status` int(11) NOT NULL,
-  `designer` int(11) DEFAULT NULL
+  `designer` int(11) DEFAULT NULL,
+  `s_awal` varchar(255) NOT NULL,
+  `s_akhir` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -179,11 +167,9 @@ CREATE TABLE `tb_users` (
 --
 
 INSERT INTO `tb_users` (`id_user`, `name`, `email`, `password`, `no_tlp`, `role`, `picture_profile`) VALUES
-(1, 'Rayhan Yuda Lesmana', 'rayhanyuda13@gmail.com', '123456', '6282112440715', 'owner', 'profile.png'),
-(2, 'Januel', 'januel@gmail.com', '123', '6282112440715', 'designer', 'profile.png'),
-(3, 'Xepher', 'xepher@gmail.com', '123', '62844120715', 'customer', 'profile.png'),
-(7, 'Albert', 'albert@gmail.com', '123', '085282205728', 'customer', 'profile.png'),
-(8, 'Steve', 'steve@gmail.com', '123', '082112440715', 'designer', 'profile.png');
+(2, 'Jefri N.I', 'jefrini@gmail.com', '123', '6285890211707', 'designer', 'profile.png'),
+(7, 'Jefri Nanda', 'jefri@gmail.com', '123456', '6285890211707', 'customer', 'profile.png'),
+(11, 'ADMIN', 'admin@alicyart.com', '123', '6285890211707', 'owner', 'profile.png');
 
 --
 -- Indexes for dumped tables
@@ -194,12 +180,6 @@ INSERT INTO `tb_users` (`id_user`, `name`, `email`, `password`, `no_tlp`, `role`
 --
 ALTER TABLE `tb_category`
   ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `tb_design`
---
-ALTER TABLE `tb_design`
-  ADD PRIMARY KEY (`id_design`);
 
 --
 -- Indexes for table `tb_designer`
@@ -248,12 +228,6 @@ ALTER TABLE `tb_category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `tb_design`
---
-ALTER TABLE `tb_design`
-  MODIFY `id_design` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `tb_designer`
 --
 ALTER TABLE `tb_designer`
@@ -263,7 +237,7 @@ ALTER TABLE `tb_designer`
 -- AUTO_INCREMENT for table `tb_order`
 --
 ALTER TABLE `tb_order`
-  MODIFY `id_order` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `id_order` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 
 --
 -- AUTO_INCREMENT for table `tb_product`
@@ -281,7 +255,7 @@ ALTER TABLE `tb_status`
 -- AUTO_INCREMENT for table `tb_users`
 --
 ALTER TABLE `tb_users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Constraints for dumped tables
