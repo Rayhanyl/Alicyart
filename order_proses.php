@@ -28,9 +28,14 @@ session_start();
 			$status = $_POST['status'];	
 
 		 			// move_uploaded_file($file_tmp, 'assets/img/file/'.$nama);
-					$sql = "INSERT INTO tb_order (user, product, o_deskripsi, file, invoice, faktur, status) 
-					VALUES ('".$_SESSION['id_user']."','".$id_product."','".$o_deskripsi."','".$nama_semua_file."','".$invoice."','".$faktur."','".$status."')";
-
+					if (empty($nama)) {
+						$sql = "INSERT INTO tb_order (user, product, o_deskripsi, invoice, faktur, status) 
+						VALUES ('".$_SESSION['id_user']."','".$id_product."','".$o_deskripsi."','".$invoice."','".$faktur."','".$status."')";
+				   	} else {
+						$sql = "INSERT INTO tb_order (user, product, o_deskripsi, file, invoice, faktur, status) 
+						VALUES ('".$_SESSION['id_user']."','".$id_product."','".$o_deskripsi."','".$nama_semua_file."','".$invoice."','".$faktur."','".$status."')";
+					}
+					
 				    if ($conn->query($sql) === TRUE) {
 						echo "<script>alert('Update Profile Berhasil .');</script>";
 				        header("location:customer_home.php");
